@@ -1,1 +1,4 @@
-# cst205team5
+# CST 205 Team 5 Repository
+## Usage
+Will expand as our project grows.
+
