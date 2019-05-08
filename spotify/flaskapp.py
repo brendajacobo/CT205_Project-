@@ -1,5 +1,7 @@
 from flask import Flask
-import ../spotify/spotify as sp
+import spotify as sp
+import smiledetector as sd
+
 app = Flask(__name__)
 
 @app.route('/')
