@@ -127,5 +127,15 @@ def featured_playlists():
 
     return render_template('profile.html')
 
+@app.route('/playlists')
+def get_playlists():
+    if 'auth_header' in session:
+        auth_header = session['auth_header']
+        data = spotify.get_playlist_tracks('3EwI1aVVRCKV70BCW56N8z', auth_header)
+        if valid_token(data):
+            return render_template('playlists.html', data=data, token=auth_header)
+
+    return render_template('profile.html')
+
 if __name__ == "__main__":
     app.run(debug=True, port=spotify.PORT)

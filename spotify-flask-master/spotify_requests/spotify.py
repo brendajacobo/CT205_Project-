@@ -264,3 +264,15 @@ def get_several_tracks(list_of_ids):
     url = "{}/?ids={ids}".format(GET_TRACK_ENDPOINT, ids=','.join(list_of_ids))
     resp = requests.get(url)
     return resp.json()
+
+# ---------------- 8. PLAYLISTS ------------------------
+# https://developer.spotify.com/console/playlists/
+
+GET_PLAYLIST_ENDPOINT = "{}/{}".format(SPOTIFY_API_URL, 'playlists')
+
+def get_playlist_tracks(playlist_id, auth_header):
+    flags = "track"
+    url = "{}/{id}/tracks".format(GET_PLAYLIST_ENDPOINT, id=playlist_id)
+    print(url)
+    resp = requests.get(url, headers=auth_header)
+    return resp.json()
