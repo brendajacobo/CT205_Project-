@@ -62,7 +62,7 @@ class face_detect():
             self.smile_detected = False
 
 
-            #cv2.imshow("face and eyes", frame)
+            cv2.imshow("face and eyes", frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
 
