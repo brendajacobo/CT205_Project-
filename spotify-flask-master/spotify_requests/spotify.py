@@ -276,3 +276,10 @@ def get_playlist_tracks(playlist_id, auth_header):
     print(url)
     resp = requests.get(url, headers=auth_header)
     return resp.json()
+    
+def get_playlist(playlist_id, auth_header):
+    flags = "track"
+    url = "{}/{id}".format(GET_PLAYLIST_ENDPOINT, id=playlist_id)
+    print(url)
+    resp = requests.get(url, headers=auth_header)
+    return resp.json()

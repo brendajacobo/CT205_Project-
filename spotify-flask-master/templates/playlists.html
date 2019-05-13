@@ -5,7 +5,7 @@
 <div class="container">
 
   <div class="mt-1">
-    <h1>Featured Playlists</h1>
+    <h1>{{ data.name }}</h1>
   </div>
 
   <p class="lead">
@@ -16,22 +16,22 @@
   <hr class="half-rule"/>
 
   <div class='containter'>
-
+    
     <h3>{{ data.message }}</h3>
-    {% for item in data['items'] %}
+    {% for item in data.tracks['items'] %}
       <div class='row'>
-        <a href="{{ item['track']['href'] }}">
-          
+        <a href="{{  }}">
           <div class='col-sm-8'>
-            <span>{{ item['track']['name'] }} </span>
+            <span>Title: {{ item.track.name }} </span>
           </div>
           <div class='col-sm-8'>
-            <span>{{ item['track']['artist'] }} </span>
+            <span>Artist: {{ item['track']['artists'][0]['name'] }} </span>
           </div>
 
           <div class='col-sm-4'>
-            {% if item.images %}
-              <img src="{{item.track.images[0].url}}" alt="{{item['track']['name']}}" class="img-playlist">
+              
+            {% if item.track.album.images[0].url %}
+              <img src="{{item.track.album.images[0].url}}" alt="{{item['track']['name']}}" class="img-playlist">
             {% else %}
               <img src="http://bit.ly/2nXRRfX" class="img-search">
             {% endif %}
