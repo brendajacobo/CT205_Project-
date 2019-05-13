@@ -7,8 +7,12 @@
 '''
 
 from flask import Flask, request, redirect, g, render_template, session
+import threading, queue
+import time
 from spotify_requests import spotify
+from smiledetector import face_detect
 
+fd = face_detect()
 app = Flask(__name__)
 app.secret_key = 'some key for session'
 
@@ -127,7 +131,20 @@ def featured_playlists():
     return render_template('profile.html')
 
 @app.route('/emotion-music-app')
-def app():
+def appEntry():
+    q = queue.Queue()
+    x = threading.Thread(target=fd.start_detect, args=(q,), daemon = True)
+    x.start()
+    # fd.start_detect()
+    time.sleep(5)
+    q.put(False)
+    result = q.get()
+    x._stop()
+    # smile = fd.getDetection()
+    # fd.stop()
+    # fd.execute = False
+    # fd = face_detect()
+    return render_template('test.html', data=result)
     
 
 @app.route('/playlists-sad')
