@@ -112,7 +112,6 @@ def profile():
 
     return render_template('profile.html')
 
-
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
@@ -127,12 +126,15 @@ def featured_playlists():
 
     return render_template('profile.html')
 
+@app.route('/emotion-music-app')
+def app():
+    
+
 @app.route('/playlists-sad')
 def get_sad_playlist():
     if 'auth_header' in session:
         auth_header = session['auth_header']
         data = spotify.get_playlist('3EwI1aVVRCKV70BCW56N8z', auth_header)
-        print(data)
         if valid_token(data):
             return render_template('playlists.html', data=data, token=auth_header)
 
@@ -143,7 +145,6 @@ def get_happy_playlist():
     if 'auth_header' in session:
         auth_header = session['auth_header']
         data = spotify.get_playlist('2T3LFZoL8YWtiOTtLCPf7m', auth_header)
-        print(data)
         if valid_token(data):
             return render_template('playlists.html', data=data, token=auth_header)
 
