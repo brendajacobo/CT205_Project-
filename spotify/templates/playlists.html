@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="mt-1">
+    <h1>{{ data.name }}</h1>
+  </div>
+
+  <p class="lead">
+    Here is a playlist for you based on your calculated mood! 
+  </p>
+
+  <hr class="half-rule"/>
+
+  <div class='containter'>
+    
+    <h3>{{ data.message }}</h3>
+    {% for item in data.tracks['items'] %}
+      <div class='row'>
+        <a href="">
+          <div class='col-sm-8'>
+            <span>Title: {{ item.track.name }} </span>
+          </div>
+          <div class='col-sm-8'>
+            <span>Artist: {{ item['track']['artists'][0]['name'] }} </span>
+          </div>
+
+          <div class='col-sm-4'>
+              
+            {% if item.track.album.images[0].url %}
+              <img src="{{item.track.album.images[0].url}}" alt="{{item['track']['name']}}" class="img-playlist">
+            {% else %}
+              <img src="http://bit.ly/2nXRRfX" class="img-search">
+            {% endif %}
+          </div>
+
+        </a>
+      </div>
+    {% endfor %}
+
+  </div>
+
+
+</div>
+
+{% endblock %}
