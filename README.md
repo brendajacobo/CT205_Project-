@@ -6,5 +6,5 @@ The biggest challenge our app faced was how fragmented it was. We have a flask a
 ## Running the app
 - Clone the master branch of this repository.
 - Retrieve the key information for your Spotify API application and put it in a file called conf.json
-- Launch the app using 'python app.py' from the /spotify directory.
+- Launch the app using `python app.py` from the /spotify directory.
 
