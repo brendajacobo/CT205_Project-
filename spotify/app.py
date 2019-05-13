@@ -135,18 +135,16 @@ def appEntry():
     q = queue.Queue()
     x = threading.Thread(target=fd.start_detect, args=(q,), daemon = True)
     x.start()
-    # fd.start_detect()
-    time.sleep(5)
+    time.sleep(5) #wait for 5 seconds to detect a smile
     q.put(False)
     result = q.get()
-    x._stop()
-    # smile = fd.getDetection()
-    # fd.stop()
-    # fd.execute = False
-    # fd = face_detect()
+    if (result):
+        return redirect("/playlists-happy", code=302)
+    else: 
+        return redirect("/playlists-sad", code=302)
+
     return render_template('test.html', data=result)
     
-
 @app.route('/playlists-sad')
 def get_sad_playlist():
     if 'auth_header' in session:

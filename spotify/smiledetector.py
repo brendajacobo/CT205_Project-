@@ -36,12 +36,9 @@ class face_detect():
     def getDetection(self):
         return self.smile_detected
 
-
     def start_detect(self, q):
         my_video = cv2.VideoCapture(0)
         while self.execute:
-            print(self.execute)
-
             ret, frame = my_video.read()
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
@@ -65,7 +62,7 @@ class face_detect():
             self.smile_detected = False
 
 
-            cv2.imshow("face and eyes", frame)
+            #cv2.imshow("face and eyes", frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
 
