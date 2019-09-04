@@ -1,4 +1,5 @@
-# CST 205 Team 5 Repository
+# CST 205 Team 5 Repository 
+Team Members: Tanner Yost, Carmelo Hernandez, Brenda Jacobo, & Aminata Seck 
 ## Description
 Our project is a Spotify song suggestor which will analyze whether you look happy or sad and recommend appropriate songs to you. 
 ## Challenges
